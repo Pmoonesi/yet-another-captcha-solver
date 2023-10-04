@@ -67,7 +67,7 @@ img_height = int(os.getenv('CAPTCHA_HEIGHT', '50'))
 max_length = int(os.getenv('CAPTCHA_CHARS', '5'))
 
 characters = set()
-char_mode = int(os.getenv('CHAR_MODE', '0'))
+char_mode = int(os.getenv('CHAR_MODE', '1'))
 
 if char_mode >= 1:
     characters = characters.union(map(chr, range(48, 58)))
@@ -79,7 +79,7 @@ if char_mode >= 3:
     characters = characters.union(map(chr, range(97, 123)))
 
 # Characters to add
-include = set(json.loads(os.getenv('CHAR_INCLUDE', '[]')))
+include = set(json.loads(os.getenv('CHAR_INCLUDE', '[" ", "+", "-"]')))
 
 # Characters to omit
 exclude = set(json.loads(os.getenv('CHAR_EXCLUDE', '[]')))
