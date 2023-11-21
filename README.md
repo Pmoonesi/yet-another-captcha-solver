@@ -2,7 +2,7 @@
 
 In this repository, I tried to solve simple captchas which require simple mathematic operations of + and -. The images contain salt and pepper noises and simple bars. You can see a sample here:
 
-![the sample](https://github.com/Pmoonesi/yet-another-captcha-solver/blob/master/sample.png?raw=true)
+![the sample](https://github.com/Pmoonesi/yet-another-captcha-solver/blob/master/assets/sample.png?raw=true)
 
 ## what-did-i-do-first
 
@@ -14,7 +14,7 @@ I went back to the library I used in my other captcha solving repository [whmcs-
 
 Also, captchas contained a lot of noise and I figured removing them would help the model learn the equation patterns easier. Therefore, I tried a couple of image processing methods for noise removal. My final pre-processing pipeline included a `closing operation`, `thresholding` and finally `dilation`. You can find the codes in `salt_and_pepper_prep.ipynb`.
 
-![the processed sample](https://github.com/Pmoonesi/yet-another-captcha-solver/blob/master/sample_processed.png?raw=true)
+![the processed sample](https://github.com/Pmoonesi/yet-another-captcha-solver/blob/master/assets/sample_processed.png?raw=true)
 
 After I got my data processed and my model ready, I trained my model for 20 epochs and obtained 96.0% accuracy.
 
@@ -23,9 +23,9 @@ After I got my data processed and my model ready, I trained my model for 20 epoc
 I obtained the captchas using a captcha producing API and for that I used an script you can find in `util/download.sh`. After that I designed an easy-to-use labeling python app using tkinter. You may find its script in `util/annotate.py` as well.
 Here are some pictures of `annotate.py`:
 
-![annotate 1](https://github.com/Pmoonesi/yet-another-captcha-solver/blob/master/annotate1.png?raw=true)
+![annotate 1](https://github.com/Pmoonesi/yet-another-captcha-solver/blob/master/assets/annotate1.png?raw=true)
 
-![annotate 2](https://github.com/Pmoonesi/yet-another-captcha-solver/blob/master/annotate2.png?raw=true)
+![annotate 2](https://github.com/Pmoonesi/yet-another-captcha-solver/blob/master/assets/annotate2.png?raw=true)
 
 After that, I used this annotation tool to label each captcha with the answer to them, which ended up to be a waste of time because regression was not the answer to my problem. Then, I started all over again and labeled them with their respective equation. You can find my final dataset in `data`.
 
